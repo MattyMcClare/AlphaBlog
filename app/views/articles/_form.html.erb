@@ -1,0 +1,24 @@
+<% if @article.errors.any? %>
+    <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @article do |i|%>
+    <p>
+        <%= i.label :title %>
+        <%= i.text_field :title %>
+    </p>
+    <p>
+        <%= i.label :description %>
+        <%= i.text_area :description %>
+    </p>
+    <p>
+        <%= i.submit %>
+    </p>
+
+    <%= link_to "Back to articles list", articles_path %>
+
+<% end %>
